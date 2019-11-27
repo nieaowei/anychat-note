@@ -1,9 +1,9 @@
 #!/bin/bash
 
-if curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel70-4.2.1.tgz && tar -xzvf mongodb-linux-x86_64-rhel70-4.2.1.tgz ~/
+if curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel70-4.2.1.tgz && tar -zxvf mongodb-linux-x86_64-rhel70-4.2.1.tgz -C ~/ && rm mongodb-linux-x86_64-rhel70-4.2.1.tgz
 then
     echo "Get mongodb successefully."
-    echo "export PATH=\$PATH:~/mongodb-linux-x86_64-rhel70-4.2.1.tgz/bin" >> /etc/profile
+    echo "export PATH=\$PATH:~/mongodb-linux-x86_64-rhel70-4.2.1/bin" >> /etc/profile
     source /etc/profile
     mkdir ~/note-data
 else
@@ -11,7 +11,7 @@ else
     exit 1
 fi
 
-if curl -O https://raw.githubusercontent.com/nieaowei/anychat-note/master/mongodb_backup.tar && tar -xf mongodb_backup.tar ~/
+if curl -O https://raw.githubusercontent.com/nieaowei/anychat-note/master/mongodb_backup.tar && tar -xf mongodb_backup.tar -C ~/ && rm mongodb_backup.tar
 then
     echo "Get backup successefully."
 else
