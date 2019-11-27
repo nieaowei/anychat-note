@@ -23,7 +23,7 @@ fi
 
 
 
-if mongod --dbpath ~/note-data --logpath ~/note-data/log/note-data.log --logappend --fork --bind_ip 172.18.0.1
+if mongod --dbpath ~/note-data --logpath ~/note-data/log/note-data.log --logappend --fork --bind_ip 172.18.0.1,127.0.0.1
 then
     echo "The mongodb started successfully."
 else
