@@ -3,7 +3,7 @@
 if curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel70-4.2.1.tgz | tar -xzvf mongodb-linux-x86_64-rhel70-4.2.1.tgz ~/
 then
     echo "Get mongodb successefully."
-    echo "export PATH=\$PATH:/home/user1/mongodb-linux-x86_64-3.0.1/bin" >> /etc/profile
+    echo "export PATH=\$PATH:~/mongodb-linux-x86_64-rhel70-4.2.1.tgz/bin" >> /etc/profile
     source /etc/profile
     mkdir ~/note-data
 else
@@ -76,3 +76,10 @@ else
 	exit 3
 fi
 
+if docker run -d -p 9000:9000 nieaowei/anychat-note
+then
+    echo "The container is running."
+else
+    echo "THe container running is faild."
+    exit 4
+fi
