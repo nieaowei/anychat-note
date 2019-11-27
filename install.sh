@@ -23,7 +23,7 @@ fi
 
 
 
-if mongod --dbpath ~/note-data --logpath ~/note-data/log/note-data.log --logappend --fork
+if mongod --dbpath ~/note-data --logpath ~/note-data/log/note-data.log --logappend --fork --bind_ip 172.18.0.1
 then
     echo "The mongodb started successfully."
 else
@@ -39,7 +39,7 @@ else
     exit 4
 fi
 
-res=""
+res= ""
 echo "The script is running."
 echo "The docker installer is running."
 if res=`docker --version | grep "Docker"`
