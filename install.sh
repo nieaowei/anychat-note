@@ -6,6 +6,8 @@ then
     echo "export PATH=\$PATH:~/mongodb-linux-x86_64-rhel70-4.2.1/bin" >> /etc/profile
     source /etc/profile
     mkdir ~/note-data
+    mkdir ~/note-data/log
+    touch ~/note-data/log/note-data.log
 else
     echo "Get mongodb faild."
     exit 1
@@ -19,7 +21,9 @@ else
     exit 2
 fi
 
-if mongod --dbpath ~/note-data
+
+
+if mongod --dbpath ~/note-data --logpath ~/note-data/log/note-data.log --logappend --fork
 then
     echo "The mongodb started successfully."
 else
